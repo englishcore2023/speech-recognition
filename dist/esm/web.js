@@ -18,6 +18,12 @@ export class SpeechRecognitionWeb extends WebPlugin {
     requestPermission() {
         throw this.unimplemented("Method not implemented on web.");
     }
+    checkPermissions() {
+        throw this.unimplemented("Method not implemented on web.");
+    }
+    requestPermissions() {
+        throw this.unimplemented("Method not implemented on web.");
+    }
 }
 const SpeechRecognition = new SpeechRecognitionWeb();
 export { SpeechRecognition };

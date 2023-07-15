@@ -1,5 +1,5 @@
 import { WebPlugin } from "@capacitor/core";
-import { SpeechRecognitionPlugin, UtteranceOptions } from "./definitions";
+import { PermissionStatus, SpeechRecognitionPlugin, UtteranceOptions } from "./definitions";
 export declare class SpeechRecognitionWeb extends WebPlugin implements SpeechRecognitionPlugin {
     available(): Promise<{
         available: boolean;
@@ -15,6 +15,8 @@ export declare class SpeechRecognitionWeb extends WebPlugin implements SpeechRec
         permission: boolean;
     }>;
     requestPermission(): Promise<void>;
+    checkPermissions(): Promise<PermissionStatus>;
+    requestPermissions(): Promise<PermissionStatus>;
 }
 declare const SpeechRecognition: SpeechRecognitionWeb;
 export { SpeechRecognition };
