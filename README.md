@@ -1,3 +1,24 @@
+
+# Fork後の共有事項
+## 変更点
+- 動画を流しながら文字起こしをできるように調整
+
+speech recognitionにAVAudioSessionのCategoryOpitionsを上書きする処理が含まれていて、
+その箇所が原因で動画を流していると文字起こしができないようになっていました。
+
+/ios/Plugin/Plugin.swift の71行目をコメントアウトすることで回避をしています。
+
+- 型ファイルの追加
+git cloneするだけだと dist/esm ディレクトリが作成されませんでした。
+これはgitignoreされていることがおそらく原因です。
+
+フォーク元ではdist/esm に型ファイルがあったので、このフォークしたspeech recognitionをインストールすると、
+型エラーが出てyarn buildが通らないようになっていました。
+
+これを回避するために型ファイルを追加しています。
+追加元となるファイルは、フォーク元のパッケージをインストールして、
+そのときにnode_modulesの中にある記述内容をそのまま利用しています。
+
 # Capacitor Speech Recognition Plugin
 
 Capacitor community plugin for speech recognition.
